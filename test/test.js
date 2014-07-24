@@ -1,42 +1,41 @@
 
-// REQUIRED MODULES //
+// **MODULES** //
 
-var // Expectation library:
-chai = require('chai'),
-utils = require('./utils'), // test utilities
-mStream = require('./../lib'); // to be tested
+var chai = require('chai'),          // Expectation library
+    utils = require('./utils'),      // Test utilities
+    sumStream = require('./../lib'); // Module to be tested
 
-// VARIABLES //
+// **VARIABLES** //
 
 var expect = chai.expect,
-assert = chai.assert;
+    assert = chai.assert;
 
-// TESTS //
+// **TESTS** //
 
 describe('msum', function tests() {
     'use strict';
 
-// Test 1
+    // Test 1
     it('should export a factory function', function test() {
-	expect(mStream).to.be.a('function');
+	expect(sumStream).to.be.a('function');
     });
 
-// Test 2
+    // Test 2
     it('should provide a method to get the window size', function test() {
-	var tStream = mStream();
-	expect(tStream.window()).to.be.a('number'); //why not mStream.window()
+	var tStream = sumStream();
+	expect(tStream.window()).to.be.a('number');
     });
 
-// Test 3
+    // Test 3
     it('should provide a method to set the window size', function test() {
-	var tStream = mStream();
+	var tStream = sumStream();
 	tStream.window(42);
 	assert.strictEqual(tStream.window(),42);
     });
 
-// Test 4
+    // Test 4
     it('should not allow a non-numeric window size', function test() {
-	var tStream = mStream();
+	var tStream = sumStream();
 
 	expect( badValue('5') ).to.throw(Error); // q
 	expect( badValue([]) ).to.throw(Error); 
@@ -53,26 +52,30 @@ describe('msum', function tests() {
 	} 
     }); //end non-numeric window
 
-// Test 5
+    // Test 5
     it('should calculate the sum of the data in the window', function test(done) {
 	var data, expected, tStream, WINDOW = 5;
 
 	// Simulate some data
 	data = [1,1,2,2,3,3,4,4,5,5,6,6];
-	// Expected values of rolling sum in window
+	// Expected values of sum in moving window
 	expected = [9,11,14,16,19,21,24,26];
+
 	// Create a new sum stream
-	tStream = mStream()
+	tStream = sumStream()
 	    .window(WINDOW)
 	    .stream();
 	// Mock reading from the stream
 	utils.readStream(tStream,onRead);
-	// Mock piping a data to the stream
+	// Mock piping to the stream
 	utils.writeStream(data,tStream);
 
 	return;
 
-	// **Function** onRead: check for errors, comp streamed data to exp data
+	/**
+	 * FUNCTION: onRead(error, actual)
+	 * Read event handler. Checks for errors. Compares streamed and expected data.
+	 */
 	function onRead(error,actual) {
 	    expect(error).to.not.exist;
 
@@ -88,31 +91,34 @@ describe('msum', function tests() {
 
 	    done();
 
-	} //end onRead
+	} // end FUNCTION onRead
+    });
 
-    }); //end sum test
-
-// Test 6
+    // Test 6
     it('should calc sum of piped data in arb window size', function test(done) {
 
 	var data, expected, tStream, WINDOW = 3;
 
 	// Simulate some data
 	data = [1,1,2,2,3,3,4,4,5,5,6,6];
-	// Expected values of rolling sum in window
+	// Expected values of sum in moving window
 	expected = [4,5,7,8,10,11,13,14,16,17];
+
 	// Create a new sum stream
-	tStream = mStream()
+	tStream = sumStream()
 	    .window(WINDOW)
 	    .stream();
 	// Mock reading from the stream
 	utils.readStream(tStream,onRead);
-	// Mock piping a data to the stream
+	// Mock piping to the stream
 	utils.writeStream(data,tStream);
 
 	return;
 
-	// **Function** onRead: check for errors, comp streamed data to exp data
+	/**
+	 * FUNCTION: onRead(error, actual)
+	 * Read event handler. Check for errors. Compare streamed and expected data.
+	 */
 	function onRead(error,actual) {
 	    expect(error).to.not.exist;
 
@@ -129,8 +135,8 @@ describe('msum', function tests() {
 	    assert.closeTo( actual[9], expected[9], 0.001);
 
 	    done();
-	} //end onRead
-    }); //end any window size test
+	} // end FUNCTION onRead()
+    }); 
 
-      }); //end description of tests
+      }); //end test descriptions
 
