@@ -12,7 +12,7 @@ var expect = chai.expect,
 
 // **TESTS** //
 
-describe('msum', function tests() {
+describe('moving sum', function tests() {
     'use strict';
 
     // Test 1
@@ -37,7 +37,7 @@ describe('msum', function tests() {
     it('should not allow a non-numeric window size', function test() {
 	var tStream = sumStream();
 
-	expect( badValue('5') ).to.throw(Error); // q
+	expect( badValue('5') ).to.throw(Error);
 	expect( badValue([]) ).to.throw(Error); 
 	expect( badValue({}) ).to.throw(Error); 
 	expect( badValue(null) ).to.throw(Error); 

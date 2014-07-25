@@ -1,7 +1,7 @@
 {
   "name": "flow-msum",
-  "version": "0.0.1",
-  "description": "Transform stream which returns the sum within a moving window in a stream of numeric data.",
+  "version": "0.0.0",
+  "description": "Transform stream which calculates the sum within a moving window in a stream of numeric data.",
   "author": {
     "name": "Athan Reines",
     "email": "athan@nodeprime.com"
@@ -18,7 +18,7 @@
   "main": "./lib",
   "repository": {
     "type": "git",
-    "url": "git://github.com/RebekahJ/flow-msum.git"
+    "url": "git://github.com/flow-io/flow-msum.git"
   },
   "keywords": [
     "stream",
@@ -29,12 +29,12 @@
     "flow",
     "flow.io",
     "sum",
-    "reduce",
+    "moving sum",
     "statistics",
     "stats"
   ],
   "bugs": {
-    "url": "https://github.com/RebekahJ/flow-msum/issues"
+    "url": "https://github.com/flow-io/flow-msum/issues"
   },
   "dependencies": {
     "flow-reduce": "~0.0.0",
