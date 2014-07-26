@@ -6,9 +6,11 @@ Transform stream which returns the sum within a moving window in a stream of num
 ## Installation
 
 + Clone flow-msum.
-+ In top level of new local flow-msum directory, use
++ In top level of flow-msum directory,
 
-```npm install```
+```bash
+npm install
+```
 
 ## Examples
 
@@ -39,7 +41,7 @@ randStream.pipe(myStream)
 ```
 
 To run the example code from the top-level application directory,
-```
+```bash
 node ./examples/index.js
 ```
 
@@ -48,7 +50,7 @@ node ./examples/index.js
 Unit tests use the Mocha test framework with Chai assertions.
 
 Assuming you have globally installed Mocha, execute the following command in the top-level application directory to run the tests:
-```
+```bash
 mocha
 ```
 

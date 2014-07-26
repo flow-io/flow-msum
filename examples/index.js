@@ -12,7 +12,7 @@ for (var i = 0; i < arSize; i++) {
 // Create readable stream from array
 var randStream = eventStream.readArray(randoms);
 
-// Create a new moving sum stream, specify a window size
+// Create a new moving-sum stream, specify a window size
 var myStream = sumStream().window(7).stream();
 
 // Pipe the data
