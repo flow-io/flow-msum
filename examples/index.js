@@ -4,7 +4,7 @@ var eventStream = require('event-stream'),
 // Create an array containing random numbers:
 var randoms = new Array( 50 );
 for (var i = 0; i < randoms.length; i++) {
-    randoms[i] = Math.floor(Math.random() * 100);
+    randoms[i] = Math.round(Math.random() * 100);
 }
 
 // Create a readable stream from an array:
