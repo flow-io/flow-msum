@@ -24,7 +24,7 @@
 *
 *
 *      AUTHOR:
-*			Athan Reines
+*			Athan Reines. 2014.
 *
 */
 

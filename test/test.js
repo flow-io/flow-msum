@@ -86,7 +86,7 @@ describe('moving sum', function tests() {
 			assert.lengthOf(actual,data.length-WINDOW+1);
 
 			for ( var i = 0; i < expected.length; i++ ) {
-				assert.closeTo( actual[i], expected[i], 0.001 );
+				assert.strictEqual( actual[i], expected[i] );
 			}
 
 			done();
@@ -127,7 +127,7 @@ describe('moving sum', function tests() {
 			assert.lengthOf(actual,data.length-WINDOW+1);
 
 			for ( var i = 0; i < expected.length; i++ ) {
-				assert.closeTo( actual[i], expected[i], 0.001 );
+				assert.strictEqual( actual[i], expected[i] );
 			}
 
 			done();

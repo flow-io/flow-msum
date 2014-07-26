@@ -25,7 +25,9 @@ for (var i = 0; i < randoms.length; i++) {
 var randStream = eventStream.readArray(randoms);
 
 // Create a new moving sum stream:
-var myStream = sumStream().stream();
+var myStream = sumStream()
+	.window( 7 )
+	.stream();
 
 // Pipe the data:
 randStream.pipe(myStream)
