@@ -47,7 +47,7 @@ $ node ./examples/index.js
 
 ## Tests
 
-Unit tests use the Mocha test framework with Chai assertions.
+Unit tests use the [Mocha](http://visionmedia.github.io/mocha) test framework with [Chai](http://chaijs.com) assertions.
 
 Assuming you have globally installed Mocha, execute the following command in the top-level application directory to run the tests:
 ```bash
@@ -58,7 +58,7 @@ All new feature development should have corresponding unit tests to validate cor
 
 ## License
 
-MIT license.
+[MIT license](http://opensource.org/licenses/MIT).
 
 ## Copyright
 
