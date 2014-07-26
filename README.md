@@ -1,41 +1,36 @@
 flow-msum
-========
+=========
 
-Transform stream which returns the sum within a moving window in a stream of numeric data.
+Transform stream which calculates a sliding-window sum (moving-sum) over a numeric data stream.
 
 ## Installation
 
-+ Clone flow-msum.
-+ In top level of flow-msum directory,
-
 ```bash
-$ npm install
+$ npm install flow-msum
 ```
 
 ## Examples
 
-```javascript
-// Required modules
-var eventStream = require('event-stream');
-var sumStream = require('flow-msum');
+``` javascript
+var eventStream = require('event-stream'),
+	sumStream = require('flow-msum');
 
-// Create array containing random numbers
-var arSize = 50;
-var randoms = [arSize];
-for (var i = 0; i < arSize; i++) {
+// Create an array containing random numbers:
+var randoms = new Array( 50 );
+for (var i = 0; i < randoms.length; i++) {
     randoms[i] = Math.floor(Math.random() * 100);
 }
 
-// Create readable stream from array
+// Create a readable stream from an array:
 var randStream = eventStream.readArray(randoms);
 
-// Create a new moving sum stream
+// Create a new moving sum stream:
 var myStream = sumStream().stream();
 
-// Pipe the data
+// Pipe the data:
 randStream.pipe(myStream)
     .pipe(eventStream.map(function(d,clbk){
-	clbk(null,d.toString()+' ');
+		clbk(null,d.toString()+'\n');
     }))
     .pipe(process.stdout);
 ```
@@ -56,13 +51,15 @@ $ mocha
 
 All new feature development should have corresponding unit tests to validate correct functionality. 
 
+
 ## License
 
 [MIT license](http://opensource.org/licenses/MIT).
 
+---
 ## Copyright
 
-Copyright © 2014.
+Copyright © 2014. Rebekah Smith.
 
 
 

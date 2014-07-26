@@ -4,27 +4,27 @@
 *
 *
 *      DESCRIPTION:
-*         - Provides supporting utility functions for tests.
+*			- Provides supporting utility functions for tests.
 *
 *
 *      NOTES:
-*         [1] Write and Read from Dominic Tarr's through module: https://github.com/dominictarr/through
+*			[1] Write and Read from Dominic Tarr's through module: https://github.com/dominictarr/through
 *
 *
 *      TODO:
-*
+*			[1]
 *
 *
 *      HISTORY:
-*         - 2014/06/17: Created.
+*			- 2014/06/17: Created. [AReines].
 *
 *
 *      DEPENDENCIES:
-*
+*			[1]
 *
 *
 *      AUTHOR:
-*
+*			Athan Reines
 *
 */
 
