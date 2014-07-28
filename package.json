@@ -4,12 +4,12 @@
   "description": "Transform stream which calculates a sliding-window sum (moving-sum) over a numeric data stream.",
   "author": {
     "name": "Rebekah Smith",
-    "email": "ilove2boogie@googlemail.com"
+    "email": "rebekahjs17@gmail.com"
   },
   "contributors": [
     {
       "name": "Rebekah Smith",
-      "email": "ilove2boogie@googlemail.com"
+      "email": "rebekahjs17@gmail.com"
     },
     {
       "name": "Athan Reines",
