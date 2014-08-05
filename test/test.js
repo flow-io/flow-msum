@@ -1,9 +1,9 @@
 
 // MODULES //
 
-var chai = require('chai'),          // Expectation library
-    utils = require('./utils'),      // Test utilities
-    sumStream = require('./../lib'); // Module to be tested
+var chai = require('chai'),
+    utils = require('./utils'),
+    sumStream = require('./../lib');
 
 // VARIABLES //
 
@@ -57,29 +57,29 @@ describe('moving sum', function tests() {
     it('should calculate the sum of the data in the window', function test(done) {
 		var data, expected, tStream, WINDOW = 5;
 
-		// Simulate some data
+		// Simulate some data:
 		data = [1,1,2,2,3,3,4,4,5,5,6,6];
 
-		// Expected values of sum in moving window
+		// Expected values of sum in moving window:
 		expected = [9,11,14,16,19,21,24,26];
 
-		// Create a new sum stream
+		// Create a new sum stream:
 		tStream = sumStream()
 			.window(WINDOW)
 			.stream();
 
-		// Mock reading from the stream
+		// Mock reading from the stream:
 		utils.readStream(tStream,onRead);
 
-		// Mock piping to the stream
+		// Mock piping to the stream:
 		utils.writeStream(data,tStream);
 
 		return;
 
 		/**
-		 * FUNCTION: onRead(error, actual)
-		 * Read event handler. Checks for errors. Compares streamed and expected data.
-		 */
+		* FUNCTION: onRead(error, actual)
+		*	Read event handler. Checks for errors. Compares streamed and expected data.
+		*/
 		function onRead(error,actual) {
 			expect(error).to.not.exist;
 
