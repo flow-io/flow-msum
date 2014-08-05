@@ -1,6 +1,6 @@
 {
   "name": "flow-msum",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Transform stream which calculates a sliding-window sum (moving-sum) over a numeric data stream.",
   "author": {
     "name": "Rebekah Smith",
